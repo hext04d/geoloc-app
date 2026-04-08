@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * Classe utilitária para gerenciar as operações do mapa usando OSMDroid.
- * Responsável por inicializar o mapa, gerenciar marcadores, círculos de precisão e temas.
+ * Responsável por inicializar o mapa, gerenciar o marcador do usuário e o círculo de precisão.
  */
 public class MapHelper {
 
@@ -73,6 +73,26 @@ public class MapHelper {
             map.getController().animateTo(currentPoint);
         }
         map.invalidate();
+    }
+
+    /**
+     * Centraliza o mapa na posição atual do marcador do usuário.
+     */
+    public void centerOnUser() {
+        if (userMarker.getPosition() != null) {
+            map.getController().animateTo(userMarker.getPosition());
+        }
+    }
+
+    /**
+     * Centraliza o mapa em uma coordenada específica.
+     *
+     * @param lat Latitude de destino.
+     * @param lon Longitude de destino.
+     */
+    public void centerOnLocation(double lat, double lon) {
+        GeoPoint point = new GeoPoint(lat, lon);
+        map.getController().animateTo(point);
     }
 
     /**

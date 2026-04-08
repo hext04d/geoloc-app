@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
     
     private LocationHelper locationHelper;
     private MapHelper mapHelper;
+    private SavedMarkersManager markersManager;
     private Location lastLocation;
     private String lastAddressText = "Endereço desconhecido";
     
@@ -84,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         MapView mapView = findViewById(R.id.map);
         if (mapView != null) {
             mapHelper = new MapHelper(mapView);
+            markersManager = new SavedMarkersManager(mapView);
+            refreshMapMarkers();
         }
         
         checkPermissionsAndStart();
@@ -103,6 +107,16 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                     adapter.setEditMode(isEditMode);
                 }
                 updateEditButtonUI(btnToggleEdit);
+                refreshMapMarkers();
+            });
+        }
+
+        FloatingActionButton fabCenter = findViewById(R.id.fabCenter);
+        if (fabCenter != null) {
+            fabCenter.setOnClickListener(v -> {
+                if (mapHelper != null) {
+                    mapHelper.centerOnUser();
+                }
             });
         }
     }
@@ -194,8 +208,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         }
         if (rvSavedLocations != null) rvSavedLocations.scrollToPosition(0);
         persistLocations();
-        
-        Toast.makeText(this, "Localização salva!", Toast.LENGTH_SHORT).show();
+        refreshMapMarkers();
     }
 
     @Override
@@ -211,6 +224,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                             adapter.notifyItemRangeChanged(position, savedLocationsList.size() - position);
                         }
                         persistLocations();
+                        refreshMapMarkers();
                     }
                 })
                 .setNegativeButton("Não", null)
@@ -246,12 +260,23 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
 
                         if (adapter != null) adapter.notifyItemChanged(position);
                         persistLocations();
+                        refreshMapMarkers();
                     } catch (Exception e) {
                         Toast.makeText(this, "Erro ao salvar: verifique os valores", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("Cancelar", null)
                 .show();
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        if (position >= 0 && position < savedLocationsList.size()) {
+            SavedLocation loc = savedLocationsList.get(position);
+            if (mapHelper != null) {
+                mapHelper.centerOnLocation(loc.getLatitude(), loc.getLongitude());
+            }
+        }
     }
 
     private void persistLocations() {
@@ -277,6 +302,12 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         }
     }
 
+    private void refreshMapMarkers() {
+        if (markersManager != null) {
+            markersManager.updateMarkers(savedLocationsList, isEditMode, this);
+        }
+    }
+
     private void checkPermissionsAndStart() {
         if (locationHelper != null && !locationHelper.hasPermissions()) {
             ActivityCompat.requestPermissions(this,
@@ -294,6 +325,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         if (locationHelper != null && locationHelper.hasPermissions()) {
             locationHelper.startLocationUpdates();
         }
+        refreshMapMarkers();
     }
 
     @Override
