@@ -35,7 +35,8 @@ public class MapHelper {
         this.map = map;
         this.map.setTileSource(TileSourceFactory.MAPNIK);
         this.map.setMultiTouchControls(true);
-        this.map.getController().setZoom(15.0);
+        // Definindo um zoom inicial mais próximo (18.5)
+        this.map.getController().setZoom(18.5);
 
         // Inicializar marcador
         userMarker = new Marker(map);
