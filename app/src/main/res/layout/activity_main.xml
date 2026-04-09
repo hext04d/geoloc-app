@@ -14,15 +14,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Botão de Centralizar -->
+    <!-- Botão de Configurações (Canto Superior Esquerdo) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="top|start"
+        android:contentDescription="Configurações"
+        app:srcCompat="@android:drawable/ic_menu_preferences"
+        app:tint="?attr/colorOnSurfaceVariant"
+        app:backgroundTint="?attr/colorSurface"
+        app:elevation="4dp" />
+
+    <!-- Botão de Centralizar (Canto Superior Direito) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_gravity="top|end"
         android:contentDescription="Centralizar Localização"
-        app:layout_anchor="@id/bottomSheet"
-        app:layout_anchorGravity="top|end"
         app:srcCompat="@android:drawable/ic_menu_mylocation"
         app:tint="?attr/colorOnPrimaryContainer"
         app:backgroundTint="?attr/colorPrimaryContainer" />

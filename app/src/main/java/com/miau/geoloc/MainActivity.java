@@ -1,6 +1,7 @@
 package com.miau.geoloc;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
@@ -121,6 +122,14 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                 }
             });
         }
+
+        FloatingActionButton btnSettings = findViewById(R.id.btnSettings);
+        if (btnSettings != null) {
+            btnSettings.setOnClickListener(v -> {
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+            });
+        }
     }
 
     private void updateEditButtonUI(MaterialButton button) {
@@ -169,9 +178,30 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
     }
 
     private void updateTextUI(Location location) {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String units = prefs.getString("units_system", "metric");
+        boolean isMetric = units.equals("metric");
+
         if (tvLatitude != null) tvLatitude.setText(String.format(Locale.getDefault(), "Lat: %.6f", location.getLatitude()));
-        if (tvAltitude != null) tvAltitude.setText(String.format(Locale.getDefault(), "Alt: %.2f m", location.getAltitude()));
-        if (tvAccuracy != null) tvAccuracy.setText(String.format(Locale.getDefault(), "Precisão: %.1f m", location.getAccuracy()));
+        
+        if (tvAltitude != null) {
+            if (isMetric) {
+                tvAltitude.setText(String.format(Locale.getDefault(), "Alt: %.2f m", location.getAltitude()));
+            } else {
+                double altitudeFeet = location.getAltitude() * 3.28084;
+                tvAltitude.setText(String.format(Locale.getDefault(), "Alt: %.2f ft", altitudeFeet));
+            }
+        }
+
+        if (tvAccuracy != null) {
+            if (isMetric) {
+                tvAccuracy.setText(String.format(Locale.getDefault(), "Precisão: %.1f m", location.getAccuracy()));
+            } else {
+                double accuracyFeet = location.getAccuracy() * 3.28084;
+                tvAccuracy.setText(String.format(Locale.getDefault(), "Precisão: %.1f ft", accuracyFeet));
+            }
+        }
+
         if (tvStatus != null) tvStatus.setText("Atualizado em: " + new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()));
     }
 
@@ -351,6 +381,11 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
             locationHelper.startLocationUpdates();
         }
         refreshMapMarkers();
+        
+        // Atualiza a UI caso as unidades tenham mudado nas configurações
+        if (lastLocation != null) {
+            updateTextUI(lastLocation);
+        }
     }
 
     @Override
