@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -12,6 +13,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -242,11 +244,23 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         EditText etAddress = dialogView.findViewById(R.id.etAddress);
         EditText etLat = dialogView.findViewById(R.id.etLatitude);
         EditText etLon = dialogView.findViewById(R.id.etLongitude);
+        RadioGroup rgColors = dialogView.findViewById(R.id.rgColors);
 
         if (etNickname != null) etNickname.setText(loc.getNickname());
         if (etAddress != null) etAddress.setText(loc.getAddress());
         if (etLat != null) etLat.setText(String.valueOf(loc.getLatitude()));
         if (etLon != null) etLon.setText(String.valueOf(loc.getLongitude()));
+        
+        // Selecionar a cor atual no RadioGroup
+        if (rgColors != null) {
+            int currentColor = loc.getColor();
+            if (currentColor == Color.parseColor("#E91E63")) rgColors.check(R.id.rbColorPink);
+            else if (currentColor == Color.parseColor("#2196F3")) rgColors.check(R.id.rbColorBlue);
+            else if (currentColor == Color.parseColor("#4CAF50")) rgColors.check(R.id.rbColorGreen);
+            else if (currentColor == Color.parseColor("#FF9800")) rgColors.check(R.id.rbColorOrange);
+            else if (currentColor == Color.parseColor("#9C27B0")) rgColors.check(R.id.rbColorPurple);
+            else if (currentColor == Color.parseColor("#F44336")) rgColors.check(R.id.rbColorRed);
+        }
 
         new AlertDialog.Builder(this)
                 .setTitle("Editar Localização")
@@ -257,6 +271,17 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                         if (etAddress != null) loc.setAddress(etAddress.getText().toString().trim());
                         if (etLat != null) loc.setLatitude(Double.parseDouble(etLat.getText().toString()));
                         if (etLon != null) loc.setLongitude(Double.parseDouble(etLon.getText().toString()));
+                        
+                        // Salvar a cor selecionada
+                        if (rgColors != null) {
+                            int checkedId = rgColors.getCheckedRadioButtonId();
+                            if (checkedId == R.id.rbColorPink) loc.setColor(Color.parseColor("#E91E63"));
+                            else if (checkedId == R.id.rbColorBlue) loc.setColor(Color.parseColor("#2196F3"));
+                            else if (checkedId == R.id.rbColorGreen) loc.setColor(Color.parseColor("#4CAF50"));
+                            else if (checkedId == R.id.rbColorOrange) loc.setColor(Color.parseColor("#FF9800"));
+                            else if (checkedId == R.id.rbColorPurple) loc.setColor(Color.parseColor("#9C27B0"));
+                            else if (checkedId == R.id.rbColorRed) loc.setColor(Color.parseColor("#F44336"));
+                        }
 
                         if (adapter != null) adapter.notifyItemChanged(position);
                         persistLocations();
