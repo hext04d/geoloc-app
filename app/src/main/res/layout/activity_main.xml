@@ -27,17 +27,37 @@
         app:backgroundTint="?attr/colorSurface"
         app:elevation="4dp" />
 
-    <!-- Botão de Centralizar (Canto Superior Direito) -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCenter"
+    <!-- Botões Superiores Direitos -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:orientation="horizontal"
         android:layout_gravity="top|end"
-        android:contentDescription="Centralizar Localização"
-        app:srcCompat="@android:drawable/ic_menu_mylocation"
-        app:tint="?attr/colorOnPrimaryContainer"
-        app:backgroundTint="?attr/colorPrimaryContainer" />
+        android:layout_margin="16dp">
+
+        <!-- Botão de Polígono -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnTogglePolygon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="Mostrar Polígono"
+            app:srcCompat="@android:drawable/ic_menu_share"
+            app:tint="?attr/colorOnSurfaceVariant"
+            app:backgroundTint="?attr/colorSurface"
+            app:elevation="4dp" />
+
+        <!-- Botão de Centralizar -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Centralizar Localização"
+            app:srcCompat="@android:drawable/ic_menu_mylocation"
+            app:tint="?attr/colorOnPrimaryContainer"
+            app:backgroundTint="?attr/colorPrimaryContainer"
+            app:elevation="4dp" />
+    </LinearLayout>
 
     <!-- Gaveta (Bottom Sheet) -->
     <com.google.android.material.card.MaterialCardView

@@ -88,6 +88,37 @@
                 android:background="?attr/colorOutlineVariant"
                 android:layout_marginVertical="16dp" />
 
+            <!-- Modo Debug -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desenvolvedor"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="?attr/colorPrimary"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/swDebugMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Modo Debug (Simular Localização)"
+                android:paddingVertical="8dp" />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quando ativado, o centro do mapa define sua localização atual."
+                android:textSize="12sp"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:layout_marginBottom="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorOutlineVariant"
+                android:layout_marginVertical="16dp" />
+
             <!-- Sobre Nós -->
             <TextView
                 android:layout_width="wrap_content"

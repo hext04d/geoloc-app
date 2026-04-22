@@ -4,13 +4,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import android.widget.RadioGroup;
 
 public class SettingsActivity extends AppCompatActivity {
 
     private static final String PREFS_NAME = "geoloc_prefs";
-    private static final String KEY_UNITS = "units_system"; // "metric" or "imperial"
-    private static final String KEY_LANG = "app_language"; // "pt" or "en"
+    private static final String KEY_UNITS = "units_system";
+    private static final String KEY_LANG = "app_language";
+    private static final String KEY_DEBUG = "debug_mode";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +54,13 @@ public class SettingsActivity extends AppCompatActivity {
         rgLanguage.setOnCheckedChangeListener((group, checkedId) -> {
             String selectedLang = (checkedId == R.id.rbLangEn) ? "en" : "pt";
             prefs.edit().putString(KEY_LANG, selectedLang).apply();
-            // Nota: Para mudar o idioma em tempo real, seria necessário recriar a activity ou usar um wrapper de contexto.
-            // Por enquanto, apenas salvamos a preferência.
+        });
+
+        // Configuração de Modo Debug
+        MaterialSwitch swDebugMode = findViewById(R.id.swDebugMode);
+        swDebugMode.setChecked(prefs.getBoolean(KEY_DEBUG, false));
+        swDebugMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            prefs.edit().putBoolean(KEY_DEBUG, isChecked).apply();
         });
     }
 }

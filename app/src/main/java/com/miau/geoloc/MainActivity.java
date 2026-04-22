@@ -36,6 +36,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.osmdroid.config.Configuration;
+import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
 import java.io.IOException;
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
     private LocationAdapter adapter;
     private List<SavedLocation> savedLocationsList;
     private boolean isEditMode = false;
+    private boolean isDebugMode = false;
+    private boolean showPolygon = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +93,31 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         if (mapView != null) {
             mapHelper = new MapHelper(mapView);
             markersManager = new SavedMarkersManager(mapView);
+            
+            mapView.addMapListener(new org.osmdroid.events.MapListener() {
+                @Override
+                public boolean onScroll(org.osmdroid.events.ScrollEvent event) {
+                    if (isDebugMode) {
+                        runOnUiThread(() -> {
+                            GeoPoint center = (GeoPoint) mapView.getMapCenter();
+                            simulateLocation(center.getLatitude(), center.getLongitude());
+                        });
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean onZoom(org.osmdroid.events.ZoomEvent event) {
+                    if (isDebugMode) {
+                        runOnUiThread(() -> {
+                            GeoPoint center = (GeoPoint) mapView.getMapCenter();
+                            simulateLocation(center.getLatitude(), center.getLongitude());
+                        });
+                    }
+                    return false;
+                }
+            });
+
             refreshMapMarkers();
         }
         
@@ -123,6 +151,19 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
             });
         }
 
+        FloatingActionButton btnTogglePolygon = findViewById(R.id.btnTogglePolygon);
+        if (btnTogglePolygon != null) {
+            btnTogglePolygon.setOnClickListener(v -> {
+                showPolygon = !showPolygon;
+                if (showPolygon && savedLocationsList.size() < 3) {
+                    Toast.makeText(this, "Adicione pelo menos 3 pontos para ver o polígono", Toast.LENGTH_SHORT).show();
+                }
+                updatePolygonButtonUI(btnTogglePolygon);
+                refreshMapMarkers();
+            });
+            updatePolygonButtonUI(btnTogglePolygon);
+        }
+
         FloatingActionButton btnSettings = findViewById(R.id.btnSettings);
         if (btnSettings != null) {
             btnSettings.setOnClickListener(v -> {
@@ -132,17 +173,42 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         }
     }
 
+    private void updatePolygonButtonUI(FloatingActionButton button) {
+        if (showPolygon) {
+            TypedValue typedValue = new TypedValue();
+            getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true);
+            button.setBackgroundTintList(ColorStateList.valueOf(typedValue.data));
+            button.setImageTintList(ColorStateList.valueOf(Color.WHITE));
+        } else {
+            button.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.white)));
+            button.setImageTintList(ColorStateList.valueOf(Color.GRAY));
+        }
+    }
+
+    private void simulateLocation(double lat, double lon) {
+        Location mockLocation = new Location("debug");
+        mockLocation.setLatitude(lat);
+        mockLocation.setLongitude(lon);
+        mockLocation.setAccuracy(5.0f);
+        mockLocation.setAltitude(0.0);
+        mockLocation.setTime(System.currentTimeMillis());
+        
+        this.lastLocation = mockLocation;
+        updateTextUI(mockLocation);
+        if (mapHelper != null) {
+            mapHelper.updateMarkerOnly(lat, lon, mockLocation.getAccuracy());
+        }
+        updateAddress(lat, lon);
+    }
+
     private void updateEditButtonUI(MaterialButton button) {
         if (isEditMode) {
-            // Busca a cor primária do tema de forma compatível
             TypedValue typedValue = new TypedValue();
             getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true);
             int colorPrimary = typedValue.data;
-            
             button.setIconTint(ColorStateList.valueOf(colorPrimary));
             button.setAlpha(1.0f);
         } else {
-            // Cor neutra quando inativo
             button.setIconTint(ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.darker_gray)));
             button.setAlpha(0.6f);
         }
@@ -169,6 +235,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
 
     @Override
     public void onLocationUpdated(Location location) {
+        if (isDebugMode) return;
         this.lastLocation = location;
         updateTextUI(location);
         if (mapHelper != null) {
@@ -182,7 +249,10 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         String units = prefs.getString("units_system", "metric");
         boolean isMetric = units.equals("metric");
 
-        if (tvLatitude != null) tvLatitude.setText(String.format(Locale.getDefault(), "Lat: %.6f", location.getLatitude()));
+        if (tvLatitude != null) {
+            String prefix = isDebugMode ? "[DEBUG] Lat: " : "Lat: ";
+            tvLatitude.setText(String.format(Locale.getDefault(), prefix + "%.6f", location.getLatitude()));
+        }
         
         if (tvAltitude != null) {
             if (isMetric) {
@@ -281,7 +351,6 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         if (etLat != null) etLat.setText(String.valueOf(loc.getLatitude()));
         if (etLon != null) etLon.setText(String.valueOf(loc.getLongitude()));
         
-        // Selecionar a cor atual no RadioGroup
         if (rgColors != null) {
             int currentColor = loc.getColor();
             if (currentColor == Color.parseColor("#E91E63")) rgColors.check(R.id.rbColorPink);
@@ -302,7 +371,6 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                         if (etLat != null) loc.setLatitude(Double.parseDouble(etLat.getText().toString()));
                         if (etLon != null) loc.setLongitude(Double.parseDouble(etLon.getText().toString()));
                         
-                        // Salvar a cor selecionada
                         if (rgColors != null) {
                             int checkedId = rgColors.getCheckedRadioButtonId();
                             if (checkedId == R.id.rbColorPink) loc.setColor(Color.parseColor("#E91E63"));
@@ -317,7 +385,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                         persistLocations();
                         refreshMapMarkers();
                     } catch (Exception e) {
-                        Toast.makeText(this, "Erro ao salvar: verifique os valores", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Erro ao salvar", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("Cancelar", null)
@@ -351,15 +419,12 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         } catch (Exception e) {
             savedLocationsList = new ArrayList<>();
         }
-        
-        if (savedLocationsList == null) {
-            savedLocationsList = new ArrayList<>();
-        }
+        if (savedLocationsList == null) savedLocationsList = new ArrayList<>();
     }
 
     private void refreshMapMarkers() {
         if (markersManager != null) {
-            markersManager.updateMarkers(savedLocationsList, isEditMode, this);
+            markersManager.updateMarkers(savedLocationsList, isEditMode, showPolygon, this);
         }
     }
 
@@ -377,12 +442,24 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
     protected void onResume() {
         super.onResume();
         if (mapHelper != null) mapHelper.onResume(this);
-        if (locationHelper != null && locationHelper.hasPermissions()) {
-            locationHelper.startLocationUpdates();
-        }
-        refreshMapMarkers();
         
-        // Atualiza a UI caso as unidades tenham mudado nas configurações
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        isDebugMode = prefs.getBoolean("debug_mode", false);
+        
+        if (locationHelper != null && locationHelper.hasPermissions()) {
+            if (isDebugMode) {
+                locationHelper.stopLocationUpdates();
+                MapView mapView = findViewById(R.id.map);
+                if (mapView != null) {
+                    GeoPoint center = (GeoPoint) mapView.getMapCenter();
+                    simulateLocation(center.getLatitude(), center.getLongitude());
+                }
+            } else {
+                locationHelper.startLocationUpdates();
+            }
+        }
+        
+        refreshMapMarkers();
         if (lastLocation != null) {
             updateTextUI(lastLocation);
         }
@@ -399,7 +476,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if (locationHelper != null) locationHelper.startLocationUpdates();
+            if (locationHelper != null && !isDebugMode) locationHelper.startLocationUpdates();
         }
     }
 }

@@ -53,6 +53,18 @@ public class MapHelper {
     }
 
     /**
+     * Atualiza a posição do marcador e o círculo de precisão sem mover a câmera.
+     */
+    public void updateMarkerOnly(double lat, double lon, float accuracy) {
+        GeoPoint currentPoint = new GeoPoint(lat, lon);
+        userMarker.setPosition(currentPoint);
+
+        List<GeoPoint> circlePoints = Polygon.pointsAsCircle(currentPoint, accuracy);
+        accuracyCircle.setPoints(circlePoints);
+        map.invalidate();
+    }
+
+    /**
      * Atualiza a posição do marcador do usuário e o círculo de precisão no mapa.
      *
      * @param lat      Latitude atual.
@@ -60,11 +72,8 @@ public class MapHelper {
      * @param accuracy Precisão da localização em metros.
      */
     public void updatePosition(double lat, double lon, float accuracy) {
+        updateMarkerOnly(lat, lon, accuracy);
         GeoPoint currentPoint = new GeoPoint(lat, lon);
-        userMarker.setPosition(currentPoint);
-
-        List<GeoPoint> circlePoints = Polygon.pointsAsCircle(currentPoint, accuracy);
-        accuracyCircle.setPoints(circlePoints);
 
         if (isFirstUpdate) {
             map.getController().setCenter(currentPoint);
@@ -72,7 +81,6 @@ public class MapHelper {
         } else {
             map.getController().animateTo(currentPoint);
         }
-        map.invalidate();
     }
 
     /**
