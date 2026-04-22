@@ -25,7 +25,8 @@
         app:srcCompat="@android:drawable/ic_menu_preferences"
         app:tint="?attr/colorOnSurfaceVariant"
         app:backgroundTint="?attr/colorSurface"
-        app:elevation="4dp" />
+        app:elevation="0dp"
+        app:pressedTranslationZ="0dp" />
 
     <!-- Botões Superiores Direitos -->
     <LinearLayout
@@ -45,7 +46,8 @@
             app:srcCompat="@android:drawable/ic_menu_share"
             app:tint="?attr/colorOnSurfaceVariant"
             app:backgroundTint="?attr/colorSurface"
-            app:elevation="4dp" />
+            app:elevation="0dp"
+            app:pressedTranslationZ="0dp" />
 
         <!-- Botão de Centralizar -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -56,7 +58,8 @@
             app:srcCompat="@android:drawable/ic_menu_mylocation"
             app:tint="?attr/colorOnPrimaryContainer"
             app:backgroundTint="?attr/colorPrimaryContainer"
-            app:elevation="4dp" />
+            app:elevation="0dp"
+            app:pressedTranslationZ="0dp" />
     </LinearLayout>
 
     <!-- Gaveta (Bottom Sheet) -->

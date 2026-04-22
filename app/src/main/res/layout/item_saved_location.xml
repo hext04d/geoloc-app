@@ -3,35 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="4dp"
-    android:layout_marginVertical="4dp"
-    app:cardElevation="0dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="6dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white"
     app:strokeWidth="1dp"
-    app:strokeColor="#DDDDDD">
+    app:strokeColor="@color/forest_hint"
+    app:shapeAppearanceOverlay="@style/ForestShapeAppearance">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp"
+        android:padding="16dp"
         android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/tvNumber"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="@drawable/circle_bg"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/leaf_bg"
             android:gravity="center"
             android:text="1"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:orientation="vertical">
 
             <TextView
@@ -41,32 +43,33 @@
                 android:text="Endereço"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="?attr/colorOnSurface" />
+                android:textColor="@color/forest_dark" />
 
             <TextView
                 android:id="@+id/tvSavedDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:text="Detalhes"
                 android:textSize="12sp"
-                android:textColor="?attr/colorOnSurfaceVariant" />
+                android:textColor="@color/forest_medium" />
         </LinearLayout>
 
         <ImageButton
             android:id="@+id/btnEdit"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_edit"
-            app:tint="?attr/colorPrimary" />
+            app:tint="@color/forest_primary" />
 
         <ImageButton
             android:id="@+id/btnDelete"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_delete"
-            app:tint="#FF5252" />
+            app:tint="@color/marker_autumn" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

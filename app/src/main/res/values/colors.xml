@@ -2,4 +2,22 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta Verde Floresta -->
+    <color name="forest_dark">#1B4332</color>
+    <color name="forest_primary">#2D6A4F</color>
+    <color name="forest_medium">#40916C</color>
+    <color name="forest_light">#52B788</color>
+    <color name="forest_sage">#74C69D</color>
+    <color name="forest_pale">#95D5B2</color>
+    <color name="forest_hint">#B7E4C7</color>
+    <color name="forest_background">#D8F3DC</color>
+
+    <!-- Marcadores Customizados (Verdes e Terrosos) -->
+    <color name="marker_pine">#2D6A4F</color>
+    <color name="marker_moss">#52B788</color>
+    <color name="marker_earth">#795548</color>
+    <color name="marker_clay">#A1887F</color>
+    <color name="marker_sun">#FFB703</color>
+    <color name="marker_autumn">#E85D04</color>
 </resources>

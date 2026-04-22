@@ -96,7 +96,7 @@
                     android:layout_height="48dp"
                     android:button="@null"
                     android:background="@drawable/marker_selection_border"
-                    android:backgroundTint="#E91E63"
+                    android:backgroundTint="@color/marker_pine"
                     android:layout_marginEnd="8dp" />
 
                 <RadioButton
@@ -105,7 +105,7 @@
                     android:layout_height="48dp"
                     android:button="@null"
                     android:background="@drawable/marker_selection_border"
-                    android:backgroundTint="#2196F3"
+                    android:backgroundTint="@color/marker_moss"
                     android:layout_marginEnd="8dp" />
 
                 <RadioButton
@@ -114,7 +114,7 @@
                     android:layout_height="48dp"
                     android:button="@null"
                     android:background="@drawable/marker_selection_border"
-                    android:backgroundTint="#4CAF50"
+                    android:backgroundTint="@color/marker_earth"
                     android:layout_marginEnd="8dp" />
 
                 <RadioButton
@@ -123,7 +123,7 @@
                     android:layout_height="48dp"
                     android:button="@null"
                     android:background="@drawable/marker_selection_border"
-                    android:backgroundTint="#FF9800"
+                    android:backgroundTint="@color/marker_clay"
                     android:layout_marginEnd="8dp" />
 
                 <RadioButton
@@ -132,7 +132,7 @@
                     android:layout_height="48dp"
                     android:button="@null"
                     android:background="@drawable/marker_selection_border"
-                    android:backgroundTint="#9C27B0"
+                    android:backgroundTint="@color/marker_sun"
                     android:layout_marginEnd="8dp" />
 
                 <RadioButton
@@ -141,7 +141,7 @@
                     android:layout_height="48dp"
                     android:button="@null"
                     android:background="@drawable/marker_selection_border"
-                    android:backgroundTint="#F44336"
+                    android:backgroundTint="@color/marker_autumn"
                     android:layout_marginEnd="8dp" />
 
             </RadioGroup>

@@ -175,13 +175,11 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
 
     private void updatePolygonButtonUI(FloatingActionButton button) {
         if (showPolygon) {
-            TypedValue typedValue = new TypedValue();
-            getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true);
-            button.setBackgroundTintList(ColorStateList.valueOf(typedValue.data));
+            button.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.forest_primary)));
             button.setImageTintList(ColorStateList.valueOf(Color.WHITE));
         } else {
-            button.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.white)));
-            button.setImageTintList(ColorStateList.valueOf(Color.GRAY));
+            button.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            button.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.forest_medium)));
         }
     }
 
@@ -203,13 +201,10 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
 
     private void updateEditButtonUI(MaterialButton button) {
         if (isEditMode) {
-            TypedValue typedValue = new TypedValue();
-            getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true);
-            int colorPrimary = typedValue.data;
-            button.setIconTint(ColorStateList.valueOf(colorPrimary));
+            button.setIconTint(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.forest_primary)));
             button.setAlpha(1.0f);
         } else {
-            button.setIconTint(ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.darker_gray)));
+            button.setIconTint(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.forest_medium)));
             button.setAlpha(0.6f);
         }
     }
@@ -303,6 +298,9 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                 timestamp
         );
 
+        // Define uma cor padrão da paleta floresta se for a primeira vez
+        newLoc.setColor(ContextCompat.getColor(this, R.color.forest_primary));
+
         savedLocationsList.add(0, newLoc);
         if (adapter != null) {
             adapter.notifyItemInserted(0);
@@ -353,12 +351,12 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         
         if (rgColors != null) {
             int currentColor = loc.getColor();
-            if (currentColor == Color.parseColor("#E91E63")) rgColors.check(R.id.rbColorPink);
-            else if (currentColor == Color.parseColor("#2196F3")) rgColors.check(R.id.rbColorBlue);
-            else if (currentColor == Color.parseColor("#4CAF50")) rgColors.check(R.id.rbColorGreen);
-            else if (currentColor == Color.parseColor("#FF9800")) rgColors.check(R.id.rbColorOrange);
-            else if (currentColor == Color.parseColor("#9C27B0")) rgColors.check(R.id.rbColorPurple);
-            else if (currentColor == Color.parseColor("#F44336")) rgColors.check(R.id.rbColorRed);
+            if (currentColor == ContextCompat.getColor(this, R.color.marker_pine)) rgColors.check(R.id.rbColorPink);
+            else if (currentColor == ContextCompat.getColor(this, R.color.marker_moss)) rgColors.check(R.id.rbColorBlue);
+            else if (currentColor == ContextCompat.getColor(this, R.color.marker_earth)) rgColors.check(R.id.rbColorGreen);
+            else if (currentColor == ContextCompat.getColor(this, R.color.marker_clay)) rgColors.check(R.id.rbColorOrange);
+            else if (currentColor == ContextCompat.getColor(this, R.color.marker_sun)) rgColors.check(R.id.rbColorPurple);
+            else if (currentColor == ContextCompat.getColor(this, R.color.marker_autumn)) rgColors.check(R.id.rbColorRed);
         }
 
         new AlertDialog.Builder(this)
@@ -373,12 +371,12 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
                         
                         if (rgColors != null) {
                             int checkedId = rgColors.getCheckedRadioButtonId();
-                            if (checkedId == R.id.rbColorPink) loc.setColor(Color.parseColor("#E91E63"));
-                            else if (checkedId == R.id.rbColorBlue) loc.setColor(Color.parseColor("#2196F3"));
-                            else if (checkedId == R.id.rbColorGreen) loc.setColor(Color.parseColor("#4CAF50"));
-                            else if (checkedId == R.id.rbColorOrange) loc.setColor(Color.parseColor("#FF9800"));
-                            else if (checkedId == R.id.rbColorPurple) loc.setColor(Color.parseColor("#9C27B0"));
-                            else if (checkedId == R.id.rbColorRed) loc.setColor(Color.parseColor("#F44336"));
+                            if (checkedId == R.id.rbColorPink) loc.setColor(ContextCompat.getColor(this, R.color.marker_pine));
+                            else if (checkedId == R.id.rbColorBlue) loc.setColor(ContextCompat.getColor(this, R.color.marker_moss));
+                            else if (checkedId == R.id.rbColorGreen) loc.setColor(ContextCompat.getColor(this, R.color.marker_earth));
+                            else if (checkedId == R.id.rbColorOrange) loc.setColor(ContextCompat.getColor(this, R.color.marker_clay));
+                            else if (checkedId == R.id.rbColorPurple) loc.setColor(ContextCompat.getColor(this, R.color.marker_sun));
+                            else if (checkedId == R.id.rbColorRed) loc.setColor(ContextCompat.getColor(this, R.color.marker_autumn));
                         }
 
                         if (adapter != null) adapter.notifyItemChanged(position);
