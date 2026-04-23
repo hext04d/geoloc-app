@@ -3,7 +3,34 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Paleta Verde Floresta -->
+    <!-- Frutiger Aero Palette -->
+    <color name="aero_text_dark">#002244</color>
+    <color name="aero_text_blue">#0055aa</color>
+    <color name="aero_orb_start">#E6F2FF</color>
+    <color name="aero_orb_end">#3296FF</color>
+    
+    <color name="aero_glass_start">#99F0F8FF</color>
+    <color name="aero_glass_end">#66CCE1FF</color>
+
+    <color name="aero_green_start">#88d44c</color>
+    <color name="aero_green_mid">#5cb823</color>
+    <color name="aero_green_dark">#3a8a0d</color>
+    <color name="aero_green_border">#285e09</color>
+
+    <color name="aero_blue_start">#66b3ff</color>
+    <color name="aero_blue_mid">#3399ff</color>
+    <color name="aero_blue_dark">#0066cc</color>
+    <color name="aero_blue_border">#004080</color>
+
+    <!-- Aero Marker Colors (Sincronizadas com o HTML) -->
+    <color name="aero_marker_pink">#cc0066</color>
+    <color name="aero_marker_blue">#0055aa</color>
+    <color name="aero_marker_green">#228800</color>
+    <color name="aero_marker_orange">#cc5500</color>
+    <color name="aero_marker_purple">#6600cc</color>
+    <color name="aero_marker_red">#aa0000</color>
+
+    <!-- Paleta Verde Floresta (Backup/Antiga) -->
     <color name="forest_dark">#1B4332</color>
     <color name="forest_primary">#2D6A4F</color>
     <color name="forest_medium">#40916C</color>
@@ -13,7 +40,7 @@
     <color name="forest_hint">#B7E4C7</color>
     <color name="forest_background">#D8F3DC</color>
 
-    <!-- Marcadores Customizados (Verdes e Terrosos) -->
+    <!-- Marcadores Antigos -->
     <color name="marker_pine">#2D6A4F</color>
     <color name="marker_moss">#52B788</color>
     <color name="marker_earth">#795548</color>

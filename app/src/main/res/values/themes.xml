@@ -1,44 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Geoloc" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/forest_primary</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/forest_background</item>
-        <item name="colorOnPrimaryContainer">@color/forest_dark</item>
         
-        <item name="colorSecondary">@color/forest_medium</item>
+        <!-- A REGRA DE OURO AERO: Desliga a película clareadora de elevação do Material 3 -->
+        <item name="elevationOverlayEnabled">false</item>
+        
+        <!-- Cores Base (Pode ajustar, mas adaptei para os tons azuis do Aero) -->
+        <item name="colorPrimary">#0055AA</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">#E6F0FA</item>
+        <item name="colorOnPrimaryContainer">#002244</item>
+        
+        <item name="colorSecondary">#66B3FF</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <item name="colorSurface">@color/forest_background</item>
-        <item name="colorOnSurface">@color/forest_dark</item>
-        <item name="colorSurfaceVariant">@color/forest_pale</item>
-        <item name="colorOnSurfaceVariant">@color/forest_primary</item>
+        <!-- Fundo geral transparente ou azul muito claro -->
+        <item name="colorSurface">@android:color/transparent</item>
+        <item name="colorOnSurface">#002244</item>
         
-        <item name="android:statusBarColor">@color/forest_background</item>
+        <item name="android:statusBarColor">#F0F8FF</item>
         <item name="android:windowLightStatusBar">true</item>
         
-        <item name="materialCardViewStyle">@style/ForestCardStyle</item>
-        <item name="materialButtonStyle">@style/ForestButtonStyle</item>
-    </style>
-
-    <style name="ForestCardStyle" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardBackgroundColor">@color/white</item>
-        <item name="cardElevation">2dp</item>
-        <item name="shapeAppearanceOverlay">@style/ForestShapeAppearance</item>
-        <item name="strokeColor">@color/forest_sage</item>
-        <item name="strokeWidth">1dp</item>
-    </style>
-
-    <style name="ForestButtonStyle" parent="Widget.Material3.Button.TonalButton">
-        <item name="backgroundTint">@color/forest_primary</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="shapeAppearanceOverlay">@style/ForestShapeAppearance</item>
-    </style>
-
-    <style name="ForestShapeAppearance" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <!-- NOTA: Removidos os 'materialCardViewStyle' e 'materialButtonStyle' daqui. -->
+        <!-- Ao remover essas regras globais, garantimos que o Material 3 não esmaga -->
+        <!-- os nossos drawables de vidro e gradientes com cores planas! -->
     </style>
 
     <style name="Theme.Geoloc" parent="Base.Theme.Geoloc" />

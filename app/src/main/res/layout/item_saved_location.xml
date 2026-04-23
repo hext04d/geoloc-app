@@ -1,75 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
     android:layout_marginVertical="6dp"
-    app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/white"
-    app:strokeWidth="1dp"
-    app:strokeColor="@color/forest_hint"
-    app:shapeAppearanceOverlay="@style/ForestShapeAppearance">
+    android:background="@drawable/list_item_aero_bg"
+    android:elevation="2dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Novo Mini-Orb esférico conforme o HTML -->
+    <View
+        android:id="@+id/tvNumber"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/mini_orb_aero" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvNumber"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/leaf_bg"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/tvSavedAddress"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="16dp"
-            android:orientation="vertical">
+            android:text="Endereço"
+            android:textColor="@color/aero_text_dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:shadowColor="#B3FFFFFF"
+            android:shadowDy="1"
+            android:shadowRadius="1" />
 
-            <TextView
-                android:id="@+id/tvSavedAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Endereço"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/forest_dark" />
-
-            <TextView
-                android:id="@+id/tvSavedDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Detalhes"
-                android:textSize="12sp"
-                android:textColor="@color/forest_medium" />
-        </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/btnEdit"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_edit"
-            app:tint="@color/forest_primary" />
-
-        <ImageButton
-            android:id="@+id/btnDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_delete"
-            app:tint="@color/marker_autumn" />
-
+        <TextView
+            android:id="@+id/tvSavedDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Detalhes"
+            android:textColor="@color/aero_text_dark"
+            android:textSize="12sp"
+            android:shadowColor="#B3FFFFFF"
+            android:shadowDy="1"
+            android:shadowRadius="1" />
     </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        app:tint="@color/aero_blue_dark" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        app:tint="@color/aero_marker_red" />
+
+</LinearLayout>

@@ -5,207 +5,209 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground"
+    android:background="@android:color/transparent"
     tools:context=".MainActivity">
 
-    <!-- Mapa ocupa o fundo todo -->
     <org.osmdroid.views.MapView
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Botão de Configurações (Canto Superior Esquerdo) -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnSettings"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/topControls"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_gravity="top|start"
-        android:contentDescription="Configurações"
-        app:srcCompat="@android:drawable/ic_menu_preferences"
-        app:tint="?attr/colorOnSurfaceVariant"
-        app:backgroundTint="?attr/colorSurface"
-        app:elevation="0dp"
-        app:pressedTranslationZ="0dp" />
+        android:padding="16dp"
+        android:clipToPadding="false">
 
-    <!-- Botões Superiores Direitos -->
+        <!-- Utilizado AppCompatImageButton para impedir que o tema Material sobreponha o fundo Aero -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:contentDescription="Configurações"
+            app:srcCompat="@android:drawable/ic_menu_preferences"
+            app:tint="#003366" 
+            android:background="@drawable/orb_aero_bg"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:elevation="4dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnTogglePolygon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Mostrar Polígono"
+                app:srcCompat="@android:drawable/ic_menu_share"
+                app:tint="#003366"
+                android:background="@drawable/orb_aero_bg"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:elevation="4dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/fabCenter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Centralizar Localização"
+                app:srcCompat="@android:drawable/ic_menu_mylocation"
+                app:tint="#003366"
+                android:background="@drawable/orb_aero_bg"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:elevation="4dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Substituímos o MaterialCardView por um LinearLayout nativo.
+         Assim evitamos qualquer interferência de cores ou sombras do Material Design 3 -->
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="top|end"
-        android:layout_margin="16dp">
-
-        <!-- Botão de Polígono -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnTogglePolygon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:contentDescription="Mostrar Polígono"
-            app:srcCompat="@android:drawable/ic_menu_share"
-            app:tint="?attr/colorOnSurfaceVariant"
-            app:backgroundTint="?attr/colorSurface"
-            app:elevation="0dp"
-            app:pressedTranslationZ="0dp" />
-
-        <!-- Botão de Centralizar -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabCenter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Centralizar Localização"
-            app:srcCompat="@android:drawable/ic_menu_mylocation"
-            app:tint="?attr/colorOnPrimaryContainer"
-            app:backgroundTint="?attr/colorPrimaryContainer"
-            app:elevation="0dp"
-            app:pressedTranslationZ="0dp" />
-    </LinearLayout>
-
-    <!-- Gaveta (Bottom Sheet) -->
-    <com.google.android.material.card.MaterialCardView
         android:id="@+id/bottomSheet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="220dp"
-        app:cardCornerRadius="28dp"
-        app:cardElevation="16dp"
+        app:behavior_peekHeight="260dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        app:cardBackgroundColor="?attr/colorSurface">
+        android:background="@drawable/bottom_sheet_aero_bg"
+        android:elevation="16dp">
 
-        <LinearLayout
+        <View
+            android:layout_width="40dp"
+            android:layout_height="6dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/drag_handle_aero" />
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:fillViewport="true">
 
-            <!-- Alça superior -->
-            <View
-                android:layout_width="32dp"
-                android:layout_height="4dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                android:background="?attr/colorOutlineVariant" />
-
-            <androidx.core.widget.NestedScrollView
+            <LinearLayout
+                android:id="@+id/bottomSheetContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="40dp">
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="A carregar endereço..."
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#002244"
+                    android:shadowColor="#80FFFFFF"
+                    android:shadowDy="2"
+                    android:shadowRadius="1" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="20dp"
-                    android:paddingBottom="40dp">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
 
                     <TextView
-                        android:id="@+id/tvAddress"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvLatitude"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Carregando endereço..."
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnSurface" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:id="@+id/tvLatitude"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Lat: ---"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnSurfaceVariant"/>
-
-                        <TextView
-                            android:id="@+id/tvAltitude"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Alt: ---"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnSurfaceVariant"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvAccuracy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Precisão: ---"
+                        android:layout_weight="1"
+                        android:text="Lat: ---"
                         android:textSize="14sp"
-                        android:textColor="?attr/colorPrimary"/>
+                        android:textColor="#002244" />
 
                     <TextView
-                        android:id="@+id/tvStatus"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvAltitude"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Aguardando sinal..."
-                        android:textSize="12sp"
-                        android:textColor="?attr/colorOnSurfaceVariant"/>
-
-                    <!-- Botões: Alinhamento e tamanho corrigidos -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="20dp"
-                        android:gravity="center_vertical">
-
-                        <Button
-                            android:id="@+id/btnSaveLocation"
-                            style="@style/Widget.Material3.Button.TonalButton"
-                            android:layout_width="0dp"
-                            android:layout_height="52dp"
-                            android:layout_weight="1"
-                            android:text="Salvar Localização" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnToggleEditMode"
-                            style="@style/Widget.Material3.Button.TonalButton"
-                            android:layout_width="52dp"
-                            android:layout_height="52dp"
-                            android:layout_marginStart="12dp"
-                            android:padding="0dp"
-                            app:icon="@android:drawable/ic_menu_preferences"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            app:iconPadding="0dp"
-                            android:insetTop="0dp"
-                            android:insetBottom="0dp"
-                            android:insetLeft="0dp"
-                            android:insetRight="0dp"
-                            android:contentDescription="Modo de Edição" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Localizações Salvas"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:textColor="?attr/colorOnSurface" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvSavedLocations"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:nestedScrollingEnabled="false"
-                        tools:listitem="@layout/item_saved_location" />
-
+                        android:layout_weight="1"
+                        android:text="Alt: ---"
+                        android:textSize="14sp"
+                        android:textColor="#002244" />
                 </LinearLayout>
-            </androidx.core.widget.NestedScrollView>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tvAccuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Precisão: ---"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#0055AA" />
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="A aguardar sinal..."
+                    android:textSize="12sp"
+                    android:textColor="#002244" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <!-- Utilizado AppCompatButton para suportar drawables complexos -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSaveLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:text="Salvar"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:background="@drawable/glossy_green_button_bg" />
+
+                    <!-- Garantindo a cor branca para o ícone de edição com app:tint -->
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btnToggleEditMode"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="12dp"
+                        app:srcCompat="@android:drawable/ic_menu_edit"
+                        app:tint="@android:color/white"
+                        android:background="@drawable/glossy_blue_button_bg"
+                        android:padding="12dp"
+                        android:scaleType="centerInside" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Localizações Salvas"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#002244" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSavedLocations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_saved_location" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

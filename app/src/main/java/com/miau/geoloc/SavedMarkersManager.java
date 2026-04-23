@@ -28,28 +28,12 @@ public class SavedMarkersManager {
         this.map = map;
     }
 
-    /**
-     * Atualiza os marcadores das localizações salvas no mapa.
-     *
-     * @param locations  Lista de localizações salvas.
-     * @param isEditMode Define se os marcadores devem aparecer em modo de edição.
-     * @param context    Contexto para carregar recursos.
-     */
-    public void updateMarkers(List<SavedLocation> locations, boolean isEditMode, Context context) {
-        updateMarkers(locations, isEditMode, false, context);
-    }
-
-    /**
-     * Atualiza os marcadores e opcionalmente desenha um polígono.
-     */
     public void updateMarkers(List<SavedLocation> locations, boolean isEditMode, boolean showPolygon, Context context) {
-        // Remover marcadores antigos
         for (Marker m : savedMarkers) {
             map.getOverlays().remove(m);
         }
         savedMarkers.clear();
 
-        // Remover polígono antigo
         if (areaPolygon != null) {
             map.getOverlays().remove(areaPolygon);
             areaPolygon = null;
@@ -65,34 +49,31 @@ public class SavedMarkersManager {
 
             Marker m = new Marker(map);
             m.setPosition(point);
-            m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+            m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER); // Esferas centralizadas
             
             String title = loc.getNickname().isEmpty() ? loc.getAddress() : loc.getNickname();
             m.setTitle(title);
-            m.setSnippet(loc.getTimestamp());
 
-            Drawable icon = ContextCompat.getDrawable(context, org.osmdroid.library.R.drawable.marker_default).mutate();
-            int markerColor = loc.getColor();
+            // Usa o novo drawable PIN para os marcadores do mapa
+            Drawable icon = ContextCompat.getDrawable(context, R.drawable.marker_location_pin).mutate();
+            icon.setColorFilter(loc.getColor(), PorterDuff.Mode.SRC_IN);
             
             if (isEditMode) {
                 icon.setAlpha(180); 
             }
 
-            icon.setColorFilter(markerColor, PorterDuff.Mode.SRC_IN);
             m.setIcon(icon);
-
             savedMarkers.add(m);
             map.getOverlays().add(m);
         }
 
-        // Criar polígono se solicitado e houver 3 ou mais pontos
         if (showPolygon && points.size() >= 3) {
             areaPolygon = new Polygon(map);
-            areaPolygon.getFillPaint().setColor(Color.TRANSPARENT); // Apenas outline
-            areaPolygon.getOutlinePaint().setColor(Color.RED);
+            areaPolygon.getFillPaint().setColor(Color.argb(30, 0, 85, 170)); // Azul Aero transparente
+            areaPolygon.getOutlinePaint().setColor(Color.argb(150, 0, 85, 170));
             areaPolygon.getOutlinePaint().setStrokeWidth(5.0f);
             areaPolygon.setPoints(points);
-            map.getOverlays().add(0, areaPolygon); // Adiciona ao fundo
+            map.getOverlays().add(0, areaPolygon);
         }
 
         map.invalidate();

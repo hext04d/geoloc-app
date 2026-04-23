@@ -15,9 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Adapter para exibir a lista de localizações salvas com suporte a modo de edição.
- */
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHolder> {
 
     public interface OnLocationActionListener {
@@ -56,35 +53,22 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
         String units = prefs.getString("units_system", "metric");
         boolean isMetric = units.equals("metric");
 
-        holder.tvNumber.setText(String.valueOf(position + 1));
-        
-        // Aplicar a cor do marcador ao círculo do número na lista
-        if (holder.tvNumber.getBackground() != null) {
-            holder.tvNumber.getBackground().setColorFilter(location.getColor(), PorterDuff.Mode.SRC_IN);
+        // Aplica a cor ao Mini-Orb (mini_orb_aero.xml)
+        if (holder.miniOrb.getBackground() != null) {
+            holder.miniOrb.getBackground().setColorFilter(location.getColor(), PorterDuff.Mode.SRC_IN);
         }
         
         String title = location.getNickname().isEmpty() ? location.getAddress() : location.getNickname();
         holder.tvAddress.setText(title);
         
-        String accuracyStr;
-        if (isMetric) {
-            accuracyStr = String.format(Locale.getDefault(), "%.1fm", location.getAccuracy());
-        } else {
-            double accuracyFeet = location.getAccuracy() * 3.28084;
-            accuracyStr = String.format(Locale.getDefault(), "%.1fft", accuracyFeet);
-        }
+        String accuracyStr = isMetric ? 
+            String.format(Locale.getDefault(), "%.1fm", location.getAccuracy()) :
+            String.format(Locale.getDefault(), "%.1fft", location.getAccuracy() * 3.28084);
 
-        String details = String.format(Locale.getDefault(),
-                "Lat: %.6f, Lon: %.6f | Precisão: %s\n%s",
-                location.getLatitude(), location.getLongitude(), 
-                accuracyStr, location.getTimestamp());
-        
-        if (!location.getNickname().isEmpty()) {
-            details = location.getAddress() + "\n" + details;
-        }
-        holder.tvDetails.setText(details);
+        holder.tvDetails.setText(String.format(Locale.getDefault(),
+                "Lat: %.6f, Lon: %.6f | %s",
+                location.getLatitude(), location.getLongitude(), accuracyStr));
 
-        // Mostrar/Esconder botões baseado no modo de edição
         int visibility = isEditMode ? View.VISIBLE : View.GONE;
         holder.btnEdit.setVisibility(visibility);
         holder.btnDelete.setVisibility(visibility);
@@ -108,7 +92,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView tvNumber;
+        public final View miniOrb; // Mudado de TextView para View
         public final TextView tvAddress;
         public final TextView tvDetails;
         public final ImageButton btnEdit;
@@ -116,7 +100,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvNumber = itemView.findViewById(R.id.tvNumber);
+            miniOrb = itemView.findViewById(R.id.tvNumber);
             tvAddress = itemView.findViewById(R.id.tvSavedAddress);
             tvDetails = itemView.findViewById(R.id.tvSavedDetails);
             btnEdit = itemView.findViewById(R.id.btnEdit);
