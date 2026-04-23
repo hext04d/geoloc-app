@@ -1,0 +1,174 @@
+[
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/layout_activity_main.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_glossy_button_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/glossy_button_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_orb_aero_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/orb_aero_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_marker_selection_border.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/marker_selection_border.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_fruit_number_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/fruit_number_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_glossy_edittext_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/glossy_edittext_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_glossy_fab_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/glossy_fab_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_glossy_green_button_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/glossy_green_button_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_drag_handle_aero.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/drag_handle_aero.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_dialog_aero_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/dialog_aero_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_glossy_blue_button_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/glossy_blue_button_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/layout_activity_settings.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_mini_orb_aero.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/mini_orb_aero.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_list_item_aero_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/list_item_aero_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_leaf_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/leaf_bg.xml"
+    },
+    {
+        "merged": "com.miau.geoloc.app-debug-39:/layout_activity_settings.xml.flat",
+        "source": "com.miau.geoloc.app-main-41:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/layout_dialog_edit_location.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/layout/dialog_edit_location.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/xml_backup_rules.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_glossy_white_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/glossy_white_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_marker_location_pin.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/marker_location_pin.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_circle_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/circle_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_bottom_sheet_aero_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/bottom_sheet_aero_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_color_swatch_background.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/color_swatch_background.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_glossy_green_bg.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/glossy_green_bg.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_selector_marker_color.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/selector_marker_color.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/layout_item_saved_location.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/layout/item_saved_location.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_circle_white.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/circle_white.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/drawable_marker_aero_orb.xml.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/drawable/marker_aero_orb.xml"
+    },
+    {
+        "merged": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-debug-39:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/charlie/.gradle/daemon/8.13/com.miau.geoloc.app-main-41:/mipmap-mdpi/ic_launcher.webp"
+    }
+]

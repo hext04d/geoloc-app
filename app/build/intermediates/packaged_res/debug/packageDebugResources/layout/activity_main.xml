@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context=".MainActivity">
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/topControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:clipToPadding="false">
+
+        <!-- Utilizado AppCompatImageButton para impedir que o tema Material sobreponha o fundo Aero -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:contentDescription="Configurações"
+            app:srcCompat="@android:drawable/ic_menu_preferences"
+            app:tint="#003366" 
+            android:background="@drawable/orb_aero_bg"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:elevation="4dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnTogglePolygon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Mostrar Polígono"
+                app:srcCompat="@android:drawable/ic_menu_share"
+                app:tint="#003366"
+                android:background="@drawable/orb_aero_bg"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:elevation="4dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/fabCenter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Centralizar Localização"
+                app:srcCompat="@android:drawable/ic_menu_mylocation"
+                app:tint="#003366"
+                android:background="@drawable/orb_aero_bg"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:elevation="4dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Substituímos o MaterialCardView por um LinearLayout nativo.
+         Assim evitamos qualquer interferência de cores ou sombras do Material Design 3 -->
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="260dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@drawable/bottom_sheet_aero_bg"
+        android:elevation="16dp">
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="6dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/drag_handle_aero" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/bottomSheetContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="40dp">
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/loading_address"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#002244"
+                    android:shadowColor="#80FFFFFF"
+                    android:shadowDy="2"
+                    android:shadowRadius="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/tvLatitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Lat: ---"
+                        android:textSize="14sp"
+                        android:textColor="#002244" />
+
+                    <TextView
+                        android:id="@+id/tvAltitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Alt: ---"
+                        android:textSize="14sp"
+                        android:textColor="#002244" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvAccuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Precisão: ---"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#0055AA" />
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/loading_address"
+                    android:textSize="12sp"
+                    android:textColor="#002244" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <!-- Utilizado AppCompatButton para suportar drawables complexos -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSaveLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_save"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:background="@drawable/glossy_green_button_bg" />
+
+                    <!-- Garantindo a cor branca para o ícone de edição com app:tint -->
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btnToggleEditMode"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="12dp"
+                        app:srcCompat="@android:drawable/ic_menu_edit"
+                        app:tint="@android:color/white"
+                        android:background="@drawable/glossy_blue_button_bg"
+                        android:padding="12dp"
+                        android:scaleType="centerInside" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/saved_locations_title"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#002244" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSavedLocations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_saved_location" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

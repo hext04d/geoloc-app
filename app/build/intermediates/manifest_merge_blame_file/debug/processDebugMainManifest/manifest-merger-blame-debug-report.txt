@@ -1,0 +1,206 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.miau.geoloc"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="36" />
+10
+11    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+11-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:5:5-79
+11-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+12-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:6:5-81
+12-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:6:22-78
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:7:5-67
+13-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:7:22-64
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:8:5-79
+14-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:8:22-76
+15    <uses-permission
+15-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:9:5-108
+16        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+16-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:9:22-78
+17        android:maxSdkVersion="32" />
+17-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:9:79-105
+18
+19    <supports-screens
+19-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:9:5-12:40
+20        android:anyDensity="true"
+20-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:10:9-34
+21        android:largeScreens="true"
+21-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:11:9-36
+22        android:normalScreens="true" />
+22-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:12:9-37
+23
+24    <uses-feature
+24-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:14:5-16:36
+25        android:name="android.hardware.location.network"
+25-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:15:9-57
+26        android:required="false" />
+26-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:16:9-33
+27    <uses-feature
+27-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:17:5-19:36
+28        android:name="android.hardware.location.gps"
+28-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:18:9-53
+29        android:required="false" />
+29-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:19:9-33
+30    <uses-feature
+30-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:20:5-22:36
+31        android:name="android.hardware.telephony"
+31-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:21:9-50
+32        android:required="false" />
+32-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:22:9-33
+33    <uses-feature
+33-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:23:5-25:36
+34        android:name="android.hardware.wifi"
+34-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:24:9-45
+35        android:required="false" />
+35-->[org.osmdroid:osmdroid-android:6.1.20] /home/charlie/.gradle/caches/8.13/transforms/130a54af7dd503c656b6b6bb38c2f665/transformed/osmdroid-android-6.1.20/AndroidManifest.xml:25:9-33
+36
+37    <permission
+37-->[androidx.core:core:1.18.0] /home/charlie/.gradle/caches/8.13/transforms/acbba3b1e0c1f36650673bf8ca451745/transformed/core-1.18.0/AndroidManifest.xml:22:5-24:47
+38        android:name="com.miau.geoloc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+38-->[androidx.core:core:1.18.0] /home/charlie/.gradle/caches/8.13/transforms/acbba3b1e0c1f36650673bf8ca451745/transformed/core-1.18.0/AndroidManifest.xml:23:9-81
+39        android:protectionLevel="signature" />
+39-->[androidx.core:core:1.18.0] /home/charlie/.gradle/caches/8.13/transforms/acbba3b1e0c1f36650673bf8ca451745/transformed/core-1.18.0/AndroidManifest.xml:24:9-44
+40
+41    <uses-permission android:name="com.miau.geoloc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+41-->[androidx.core:core:1.18.0] /home/charlie/.gradle/caches/8.13/transforms/acbba3b1e0c1f36650673bf8ca451745/transformed/core-1.18.0/AndroidManifest.xml:26:5-97
+41-->[androidx.core:core:1.18.0] /home/charlie/.gradle/caches/8.13/transforms/acbba3b1e0c1f36650673bf8ca451745/transformed/core-1.18.0/AndroidManifest.xml:26:22-94
+42
+43    <application
+43-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:11:5-33:19
+44        android:allowBackup="true"
+44-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:12:9-35
+45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+45-->[androidx.core:core:1.18.0] /home/charlie/.gradle/caches/8.13/transforms/acbba3b1e0c1f36650673bf8ca451745/transformed/core-1.18.0/AndroidManifest.xml:28:18-86
+46        android:dataExtractionRules="@xml/data_extraction_rules"
+46-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:13:9-65
+47        android:debuggable="true"
+48        android:extractNativeLibs="false"
+49        android:fullBackupContent="@xml/backup_rules"
+49-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:14:9-54
+50        android:icon="@mipmap/ic_launcher"
+50-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:15:9-43
+51        android:label="@string/app_name"
+51-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:16:9-41
+52        android:roundIcon="@mipmap/ic_launcher_round"
+52-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:17:9-54
+53        android:supportsRtl="true"
+53-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:18:9-35
+54        android:testOnly="true"
+55        android:theme="@style/Theme.Geoloc" >
+55-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:19:9-44
+56        <activity
+56-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:20:9-28:20
+57            android:name="com.miau.geoloc.MainActivity"
+57-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:21:13-41
+58            android:exported="true" >
+58-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:22:13-36
+59            <intent-filter>
+59-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:23:13-27:29
+60                <action android:name="android.intent.action.MAIN" />
+60-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:24:17-69
+60-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:24:25-66
+61
+62                <category android:name="android.intent.category.LAUNCHER" />
+62-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:26:17-77
+62-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:26:27-74
+63            </intent-filter>
+64        </activity>
+65        <activity
+65-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:29:9-32:58
+66            android:name="com.miau.geoloc.SettingsActivity"
+66-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:30:13-45
+67            android:label="Configurações"
+67-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:31:13-42
+68            android:parentActivityName="com.miau.geoloc.MainActivity" />
+68-->/home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:32:13-55
+69        <activity
+69-->[com.google.android.gms:play-services-base:18.5.0] /home/charlie/.gradle/caches/8.13/transforms/2c63f7f9e64f5f2abe1735a59494cd3e/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+70            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+70-->[com.google.android.gms:play-services-base:18.5.0] /home/charlie/.gradle/caches/8.13/transforms/2c63f7f9e64f5f2abe1735a59494cd3e/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+71            android:exported="false"
+71-->[com.google.android.gms:play-services-base:18.5.0] /home/charlie/.gradle/caches/8.13/transforms/2c63f7f9e64f5f2abe1735a59494cd3e/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+72            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+72-->[com.google.android.gms:play-services-base:18.5.0] /home/charlie/.gradle/caches/8.13/transforms/2c63f7f9e64f5f2abe1735a59494cd3e/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+73
+74        <meta-data
+74-->[com.google.android.gms:play-services-basement:18.4.0] /home/charlie/.gradle/caches/8.13/transforms/199a9749f72ea0977457b5339561aa8e/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+75            android:name="com.google.android.gms.version"
+75-->[com.google.android.gms:play-services-basement:18.4.0] /home/charlie/.gradle/caches/8.13/transforms/199a9749f72ea0977457b5339561aa8e/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+76            android:value="@integer/google_play_services_version" />
+76-->[com.google.android.gms:play-services-basement:18.4.0] /home/charlie/.gradle/caches/8.13/transforms/199a9749f72ea0977457b5339561aa8e/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+77
+78        <provider
+78-->[androidx.emoji2:emoji2:1.3.0] /home/charlie/.gradle/caches/8.13/transforms/993236bc1c7a701397857ab613dfdd04/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+79            android:name="androidx.startup.InitializationProvider"
+79-->[androidx.emoji2:emoji2:1.3.0] /home/charlie/.gradle/caches/8.13/transforms/993236bc1c7a701397857ab613dfdd04/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+80            android:authorities="com.miau.geoloc.androidx-startup"
+80-->[androidx.emoji2:emoji2:1.3.0] /home/charlie/.gradle/caches/8.13/transforms/993236bc1c7a701397857ab613dfdd04/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+81            android:exported="false" >
+81-->[androidx.emoji2:emoji2:1.3.0] /home/charlie/.gradle/caches/8.13/transforms/993236bc1c7a701397857ab613dfdd04/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+82            <meta-data
+82-->[androidx.emoji2:emoji2:1.3.0] /home/charlie/.gradle/caches/8.13/transforms/993236bc1c7a701397857ab613dfdd04/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+83                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+83-->[androidx.emoji2:emoji2:1.3.0] /home/charlie/.gradle/caches/8.13/transforms/993236bc1c7a701397857ab613dfdd04/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+84                android:value="androidx.startup" />
+84-->[androidx.emoji2:emoji2:1.3.0] /home/charlie/.gradle/caches/8.13/transforms/993236bc1c7a701397857ab613dfdd04/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+85            <meta-data
+85-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/charlie/.gradle/caches/8.13/transforms/e648b2adb78de6f60cbfc4e6b7f86a33/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+86                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+86-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/charlie/.gradle/caches/8.13/transforms/e648b2adb78de6f60cbfc4e6b7f86a33/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+87                android:value="androidx.startup" />
+87-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/charlie/.gradle/caches/8.13/transforms/e648b2adb78de6f60cbfc4e6b7f86a33/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+88            <meta-data
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+89                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+90                android:value="androidx.startup" />
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+91        </provider>
+92
+93        <receiver
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+94            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+94-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+95            android:directBootAware="false"
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+96            android:enabled="true"
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+97            android:exported="true"
+97-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+98            android:permission="android.permission.DUMP" >
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+99            <intent-filter>
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+100                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+101            </intent-filter>
+102            <intent-filter>
+102-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+103                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+104            </intent-filter>
+105            <intent-filter>
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+106                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+107            </intent-filter>
+108            <intent-filter>
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+109                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/charlie/.gradle/caches/8.13/transforms/cceec83ca39e8408c135bda965fef2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+110            </intent-filter>
+111        </receiver>
+112    </application>
+113
+114</manifest>
