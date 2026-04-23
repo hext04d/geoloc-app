@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorSurface"
-        app:title="Configurações"
+        app:title="@string/settings_title"
         app:navigationIcon="?attr/homeAsUpIndicator" />
 
     <ScrollView
@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Unidades de Medida"
+                android:text="@string/settings_units"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="?attr/colorPrimary"
@@ -42,12 +42,12 @@
                     android:id="@+id/rbMetric"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Quilômetros (KM)" />
+                    android:text="@string/settings_km" />
                 <RadioButton
                     android:id="@+id/rbImperial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pés / Milhas (FT/Miles)" />
+                    android:text="@string/settings_ft" />
             </RadioGroup>
 
             <View
@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Idioma"
+                android:text="@string/settings_language"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="?attr/colorPrimary"
@@ -74,12 +74,12 @@
                     android:id="@+id/rbLangPt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Português" />
+                    android:text="@string/settings_language_pt" />
                 <RadioButton
                     android:id="@+id/rbLangEn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="English" />
+                    android:text="@string/settings_language_en" />
             </RadioGroup>
 
             <View
@@ -92,7 +92,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Desenvolvedor"
+                android:text="@string/settings_developer"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="?attr/colorPrimary"
@@ -102,13 +102,13 @@
                 android:id="@+id/swDebugMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Modo Debug (Simular Localização)"
+                android:text="@string/settings_debug"
                 android:paddingVertical="8dp" />
             
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quando ativado, o centro do mapa define sua localização atual."
+                android:text="@string/settings_debug_desc"
                 android:textSize="12sp"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:layout_marginBottom="16dp" />
@@ -123,7 +123,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sobre Nós"
+                android:text="@string/settings_about"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="?attr/colorPrimary"
@@ -140,7 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="12dp"
-                    android:text="Geoloc App\nVersão 1.0.0\n\nDesenvolvido para facilitar a marcação e o gerenciamento de localizações geográficas."
+                    android:text="@string/settings_about_text"
                     android:textColor="?attr/colorOnSurfaceVariant" />
             </com.google.android.material.card.MaterialCardView>
 
