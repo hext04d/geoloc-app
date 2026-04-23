@@ -1,0 +1,45 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Geoloc" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/forest_light</item>
+        <item name="colorOnPrimary">@color/forest_dark</item>
+        <item name="colorPrimaryContainer">@color/forest_primary</item>
+        <item name="colorOnPrimaryContainer">@color/forest_hint</item>
+
+        <item name="colorSecondary">@color/forest_sage</item>
+        <item name="colorOnSecondary">@color/forest_dark</item>
+
+        <item name="colorSurface">@color/forest_dark</item>
+        <item name="colorOnSurface">@color/forest_pale</item>
+        <item name="colorSurfaceVariant">#254E3C</item>
+        <item name="colorOnSurfaceVariant">@color/forest_sage</item>
+
+        <item name="android:statusBarColor">@color/forest_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="materialCardViewStyle">@style/ForestCardStyle</item>
+        <item name="materialButtonStyle">@style/ForestButtonStyle</item>
+    </style>
+
+    <style name="ForestCardStyle" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/colorSurfaceVariant</item>
+        <item name="cardElevation">2dp</item>
+        <item name="shapeAppearanceOverlay">@style/ForestShapeAppearance</item>
+        <item name="strokeColor">@color/forest_primary</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="ForestButtonStyle" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">@color/forest_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="shapeAppearanceOverlay">@style/ForestShapeAppearance</item>
+    </style>
+
+    <style name="ForestShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Theme.Geoloc" parent="Base.Theme.Geoloc" />
+</resources>

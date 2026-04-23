@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Geoloc" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <!-- A REGRA DE OURO AERO: Desliga a película clareadora de elevação do Material 3 -->
+        <item name="elevationOverlayEnabled">false</item>
+        
+        <!-- Cores Base (Pode ajustar, mas adaptei para os tons azuis do Aero) -->
+        <item name="colorPrimary">#0055AA</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">#E6F0FA</item>
+        <item name="colorOnPrimaryContainer">#002244</item>
+        
+        <item name="colorSecondary">#66B3FF</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Fundo geral transparente ou azul muito claro -->
+        <item name="colorSurface">@android:color/transparent</item>
+        <item name="colorOnSurface">#002244</item>
+        
+        <item name="android:statusBarColor">#F0F8FF</item>
+        <item name="android:windowLightStatusBar">true</item>
+        
+        <!-- NOTA: Removidos os 'materialCardViewStyle' e 'materialButtonStyle' daqui. -->
+        <!-- Ao remover essas regras globais, garantimos que o Material 3 não esmaga -->
+        <!-- os nossos drawables de vidro e gradientes com cores planas! -->
+    </style>
+
+    <style name="Theme.Geoloc" parent="Base.Theme.Geoloc" />
+</resources>

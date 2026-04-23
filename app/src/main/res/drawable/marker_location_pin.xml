@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="24dp"
+    android:height="36dp"
+    android:viewportWidth="24"
+    android:viewportHeight="36">
+
+    <!-- Sombra Projetada na Base -->
+    <path
+        android:pathData="M7,32 C7,30.89 9.24,30 12,30 C14.76,30 17,30.89 17,32 C17,33.1 14.76,34 12,34 C9.24,34 7,33.1 7,32 Z"
+        android:fillColor="#40000000" />
+
+    <!-- Corpo Principal do Pin (Aero Glass Base) -->
+    <path
+        android:pathData="M12,2 C6.48,2 2,6.48 2,12 C2,19.5 12,32 12,32 C12,32 22,19.5 22,12 C22,6.48 17.52,2 12,2 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="12" android:startY="2"
+                android:endX="12" android:endY="24"
+                android:type="linear">
+                <item android:offset="0" android:color="#E6FFFFFF" />
+                <item android:offset="1" android:color="#99F0F8FF" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Borda Branca Externa (Efeito Vidro Cortado) -->
+    <path
+        android:pathData="M12,2 C6.48,2 2,6.48 2,12 C2,19.5 12,32 12,32 C12,32 22,19.5 22,12 C22,6.48 17.52,2 12,2 Z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#FFFFFF" />
+
+    <!-- Miolo Central Colorido (Para representar a cor da localização) -->
+    <path
+        android:pathData="M12,7 C9.24,7 7,9.24 7,12 C7,14.76 9.24,17 12,17 C14.76,17 17,14.76 17,12 C17,9.24 14.76,7 12,7 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="7" android:startY="7"
+                android:endX="17" android:endY="17"
+                android:type="linear">
+                <item android:offset="0" android:color="#66B3FF" />
+                <item android:offset="1" android:color="#0055AA" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    
+    <!-- Reflexo Interno do Miolo -->
+    <path
+        android:pathData="M12,7.5 C10,7.5 8.5,8.5 8,10 C9,8.5 10.5,8 12,8 C13.5,8 15,8.5 16,10 C15.5,8.5 14,7.5 12,7.5 Z"
+        android:fillColor="#80FFFFFF" />
+
+    <!-- Reflexo/Brilho Superior Clássico (Aero Glossy Highlight) -->
+    <path
+        android:pathData="M12,3 C7.5,3 4,6.5 3.2,11 C5,8 8,6 12,6 C16,6 19,8 20.8,11 C20,6.5 16.5,3 12,3 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="12" android:startY="3"
+                android:endX="12" android:endY="11"
+                android:type="linear">
+                <item android:offset="0" android:color="#E6FFFFFF" />
+                <item android:offset="1" android:color="#00FFFFFF" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+</vector>

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">geoloc</string>
+    <string name="lat_label">Lat: %.6f</string>
+    <string name="alt_label">Alt: %.2f m</string>
+    <string name="alt_label_imperial">Alt: %.2f ft</string>
+    <string name="acc_label">Precisão: %.1f m</string>
+    <string name="acc_label_imperial">Precisão: %.1f ft</string>
+    <string name="status_gps_active">Sinal GPS: Ativo</string>
+    <string name="status_debug">Simulando via Mapa</string>
+    <string name="loading_address">A carregar endereço...</string>
+    <string name="btn_save">Salvar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_edit_mode">Editar</string>
+    <string name="saved_locations_title">Localizações Salvas</string>
+    <string name="debug_enabled">Modo Debug: ATIVADO (Mova o mapa)</string>
+    <string name="debug_disabled">Modo Debug: DESATIVADO</string>
+    <string name="loc_saved">Localização salva!</string>
+
+    <!-- Edit -->
+    <string name="edit_loc_title">Editar Localização</string>
+    <string name="nickname_label">Apelido</string>
+    <string name="nickname_hint">Ex: Casa, Trabalho</string>
+    <string name="address_label">Endereço</string>
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="marker_color_label">Cor do Marcador</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Configurações</string>
+    <string name="settings_units">Unidades de Medida</string>
+    <string name="settings_km">Quilômetros (KM)</string>
+    <string name="settings_ft">Pés / Milhas (FT/Miles)</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_language_pt">Português</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_developer">Desenvolvedor</string>
+    <string name="settings_debug">Modo Debug (Simular Localização)</string>
+    <string name="settings_debug_desc">Quando ativado, o centro do mapa define sua localização atual.</string>
+    <string name="settings_about">Sobre Nós</string>
+    <string name="settings_about_text">Geoloc App\nVersão 1.0.0\n\nDesenvolvido para facilitar a marcação e o gerenciamento de localizações geográficas.</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_remove_title">Remover Localização</string>
+    <string name="dialog_remove_message">Deseja realmente excluir este registro?</string>
+    <string name="dialog_yes">Sim</string>
+    <string name="dialog_no">Não</string>
+    <string name="error_save">Erro ao salvar</string>
+</resources>
