@@ -1,9 +1,20 @@
 -- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:34:9-42:20
+	android:grantUriPermissions
+		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:38:13-47
+	android:authorities
+		INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml
+		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:36:13-64
+	android:exported
+		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:37:13-37
+	android:name
+		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:35:13-62
 manifest
-ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-35:12
+ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:2:1-45:12
 MERGED from [com.google.android.material:material:1.13.0] /home/charlie/.gradle/caches/8.13/transforms/5f13adeb7ea7a880369d8aec675e3d5c/transformed/material-1.13.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/charlie/.gradle/caches/8.13/transforms/27b19b5ba0bd349ed06289039777c2bc/transformed/constraintlayout-2.2.1/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.1] /home/charlie/.gradle/caches/8.13/transforms/42a1f698900e9b248f8e5c8aaec91920/transformed/appcompat-resources-1.7.1/AndroidManifest.xml:2:1-7:12
@@ -83,8 +94,8 @@ ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidMani
 	android:name
 		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:9:22-78
 application
-ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:11:5-33:19
-INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:11:5-33:19
+ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:11:5-43:19
+INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:11:5-43:19
 MERGED from [com.google.android.material:material:1.13.0] /home/charlie/.gradle/caches/8.13/transforms/5f13adeb7ea7a880369d8aec675e3d5c/transformed/material-1.13.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.13.0] /home/charlie/.gradle/caches/8.13/transforms/5f13adeb7ea7a880369d8aec675e3d5c/transformed/material-1.13.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] /home/charlie/.gradle/caches/8.13/transforms/27b19b5ba0bd349ed06289039777c2bc/transformed/constraintlayout-2.2.1/AndroidManifest.xml:7:5-20
@@ -153,6 +164,12 @@ ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidMani
 		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:31:13-42
 	android:name
 		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:30:13-45
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:39:13-41:54
+	android:resource
+		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:41:17-51
+	android:name
+		ADDED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml:40:17-67
 uses-sdk
 INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/charlie/Documents/Android projs/geoloc/app/src/main/AndroidManifest.xml

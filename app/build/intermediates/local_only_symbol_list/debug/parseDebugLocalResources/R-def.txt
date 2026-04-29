@@ -65,6 +65,7 @@ id bottomSheetContent
 id btnCancelEdit
 id btnDelete
 id btnEdit
+id btnExportKMZ
 id btnSaveEdit
 id btnSaveLocation
 id btnSettings
@@ -155,3 +156,4 @@ style ForestShapeAppearance
 style Theme.Geoloc
 xml backup_rules
 xml data_extraction_rules
+xml file_paths
