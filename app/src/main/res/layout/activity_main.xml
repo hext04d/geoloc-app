@@ -41,6 +41,19 @@
             android:layout_alignParentEnd="true">
 
             <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnExportKMZ"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Exportar KMZ"
+                app:srcCompat="@android:drawable/ic_menu_save"
+                app:tint="#003366"
+                android:background="@drawable/orb_aero_bg"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:elevation="4dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnTogglePolygon"
                 android:layout_width="48dp"
                 android:layout_height="48dp"

@@ -153,9 +153,20 @@ public class MainActivity extends BaseActivity implements LocationHelper.Locatio
             btnTogglePolygon.setOnClickListener(v -> {
                 showPolygon = !showPolygon;
                 if (showPolygon && savedLocationsList.size() < 3) {
-                    Toast.makeText(this, R.string.loc_saved, Toast.LENGTH_SHORT).show(); // Ajustar para string de erro polígono
+                    Toast.makeText(this, "Salve ao menos 3 locais para ver o polígono", Toast.LENGTH_SHORT).show();
                 }
                 refreshMapMarkers();
+            });
+        }
+
+        ImageButton btnExport = findViewById(R.id.btnExportKMZ);
+        if (btnExport != null) {
+            btnExport.setOnClickListener(v -> {
+                if (savedLocationsList.isEmpty()) {
+                    Toast.makeText(this, "Nenhuma localização salva para exportar", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                showExportOptions();
             });
         }
 
@@ -174,6 +185,22 @@ public class MainActivity extends BaseActivity implements LocationHelper.Locatio
                 return true;
             });
         }
+    }
+
+    private void showExportOptions() {
+        String[] options = {"KMZ (Google Earth)", "KML (XML)", "TXT (Texto Simples)"};
+        new AlertDialog.Builder(this)
+                .setTitle("Escolha o formato de exportação")
+                .setItems(options, (dialog, which) -> {
+                    LocationExporter.Format format;
+                    switch (which) {
+                        case 1: format = LocationExporter.Format.KML; break;
+                        case 2: format = LocationExporter.Format.TXT; break;
+                        default: format = LocationExporter.Format.KMZ; break;
+                    }
+                    LocationExporter.export(this, savedLocationsList, format);
+                })
+                .show();
     }
 
     private void applyDebugModeState() {
@@ -279,7 +306,14 @@ public class MainActivity extends BaseActivity implements LocationHelper.Locatio
         Toast.makeText(this, R.string.loc_saved, Toast.LENGTH_SHORT).show();
     }
 
-    @Override public void onDelete(int position) { /* Lógica de delete */ }
+    @Override public void onDelete(int position) { 
+        if (position >= 0 && position < savedLocationsList.size()) {
+            savedLocationsList.remove(position);
+            if (adapter != null) adapter.notifyItemRemoved(position);
+            persistLocations();
+            refreshMapMarkers();
+        }
+    }
 
     @Override
     public void onEdit(int position) {
@@ -338,7 +372,14 @@ public class MainActivity extends BaseActivity implements LocationHelper.Locatio
         dialog.show();
     }
 
-    @Override public void onItemClick(int position) { /* Lógica de clique */ }
+    @Override public void onItemClick(int position) { 
+        if (position >= 0 && position < savedLocationsList.size()) {
+            SavedLocation loc = savedLocationsList.get(position);
+            if (mapHelper != null) {
+                mapHelper.animateTo(loc.getLatitude(), loc.getLongitude());
+            }
+        }
+    }
 
     private void persistLocations() {
         String json = new Gson().toJson(savedLocationsList);

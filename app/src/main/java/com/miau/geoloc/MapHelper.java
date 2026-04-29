@@ -74,7 +74,7 @@ public class MapHelper {
         }
     }
 
-    public void centerOnLocation(double lat, double lon) {
+    public void animateTo(double lat, double lon) {
         GeoPoint point = new GeoPoint(lat, lon);
         map.getController().animateTo(point);
     }
